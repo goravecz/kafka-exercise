@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  producer:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    networks:
+      - local-network
+    expose:
+      - "8888"
+
+  consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile
+    networks:
+      - local-network
+    expose:
+      - "8080"
+
+networks:
+  local-network:
