@@ -14,10 +14,10 @@ public class TimestampValidator implements ConstraintValidator<Timestamp, String
   private static final Logger LOGGER = LoggerFactory.getLogger(TimestampValidator.class);
 
   @Override
-  public boolean isValid(final String timestamp, final ConstraintValidatorContext constraintValidatorContext) {
+  public boolean isValid(
+      final String timestamp, final ConstraintValidatorContext constraintValidatorContext) {
     final var dateTimeFormatter =
-        DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ssZ")
-            .withResolverStyle(ResolverStyle.STRICT);
+        DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ssZ").withResolverStyle(ResolverStyle.STRICT);
 
     try {
       ZonedDateTime.parse(timestamp, dateTimeFormatter);
