@@ -26,7 +26,7 @@ public class Consumer {
   public void consumeBeerOrder(final String message) throws JsonProcessingException {
     LOGGER.info("Beer order consumed={}", message);
 
-    // final var beerOrder = objectMapper.readValue(message, BeerOrder.class);
-    // beerService.process(beerOrder);
+    final var beerOrder = objectMapper.readValue(message, BeerOrder.class);
+    beerService.process(beerOrder);
   }
 }
